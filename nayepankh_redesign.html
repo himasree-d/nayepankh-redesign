@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NayePankh Foundation — Give Wings to Change</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --cream-soft: #F2ECE0;
+    --teal: #1B4D3E;
+    --teal-deep: #133831;
+    --amber: #E8A33D;
+    --terracotta: #D4694A;
+    --charcoal: #2A2A28;
+    --line: rgba(42, 42, 40, 0.12);
+
+    --bg: var(--cream);
+    --bg-alt: var(--cream-soft);
+    --text: var(--charcoal);
+    --text-soft: rgba(42, 42, 40, 0.65);
+    --surface: #ffffff;
+    --accent: var(--terracotta);
+    --primary: var(--teal);
+    --line-color: var(--line);
+  }
+
+  [data-theme="dark"] {
+    --bg: #16201C;
+    --bg-alt: #1C2823;
+    --text: #F2ECE0;
+    --text-soft: rgba(242, 236, 224, 0.65);
+    --surface: #1F2C26;
+    --accent: var(--amber);
+    --primary: #6FAE9B;
+    --line-color: rgba(242, 236, 224, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-color);
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .logo svg { width: 30px; height: 30px; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--line-color);
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .theme-toggle:hover { transform: rotate(20deg); }
+
+  .theme-toggle svg { width: 18px; height: 18px; stroke: var(--text); fill: none; stroke-width: 1.8; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -8px var(--accent);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+  }
+  .menu-toggle svg { width: 26px; height: 26px; }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    padding: 160px 24px 110px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+  }
+
+  .hero-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  .eyebrow .feather { width: 16px; height: 16px; }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+    line-height: 1.08;
+    font-weight: 600;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--primary);
+  }
+
+  .hero p.lead {
+    margin-top: 24px;
+    font-size: 1.15rem;
+    color: var(--text-soft);
+    max-width: 480px;
+  }
+
+  .hero-cta {
+    margin-top: 38px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    margin-top: 56px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .stat .label {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-top: 4px;
+  }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.35);
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(27,77,62,0.55) 100%);
+  }
+
+  .float-card {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 2;
+    color: var(--charcoal);
+    animation: floatUp 0.9s ease 0.6s both;
+  }
+
+  [data-theme="dark"] .float-card {
+    background: rgba(31, 44, 38, 0.92);
+    color: var(--text);
+  }
+
+  .float-card .feather-badge {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .float-card .feather-badge svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+
+  .float-card strong { display: block; font-size: 0.95rem; }
+  .float-card span { font-size: 0.8rem; color: var(--text-soft); }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Drifting feather background decoration */
+  .drift-feather {
+    position: absolute;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  [data-theme="dark"] .drift-feather { opacity: 0.06; }
+
+  .drift-1 { top: 10%; right: 6%; width: 120px; animation: drift 14s ease-in-out infinite; }
+  .drift-2 { bottom: 8%; left: 4%; width: 80px; animation: drift 18s ease-in-out infinite reverse; }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-24px) rotate(12deg); }
+  }
+
+  /* ===== Section shared ===== */
+  section { padding: 100px 0; }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .section-head .eyebrow { color: var(--primary); }
+  [data-theme="dark"] .section-head .eyebrow { color: var(--amber); }
+
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+  }
+
+  .section-head p {
+    margin-top: 16px;
+    color: var(--text-soft);
+    font-size: 1.05rem;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== About ===== */
+  .about {
+    background: var(--bg-alt);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-img {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .about-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .about-text p {
+    color: var(--text-soft);
+    margin-bottom: 16px;
+  }
+
+  .quote-block {
+    margin-top: 28px;
+    padding: 22px 26px;
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 0 14px 14px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  .quote-block cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-soft);
+  }
+
+  /* ===== Programs ===== */
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .program-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid var(--line-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -20px rgba(0,0,0,0.25);
+    border-color: var(--accent);
+  }
+
+  .program-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .program-icon svg { width: 26px; height: 26px; stroke: var(--primary); fill: none; stroke-width: 1.8; }
+  [data-theme="dark"] .program-icon svg { stroke: var(--amber); }
+
+  .program-card h4 { font-size: 1.2rem; margin-bottom: 10px; }
+  .program-card p { color: var(--text-soft); font-size: 0.95rem; }
+
+  /* ===== Impact strip ===== */
+  .impact {
+    background: var(--teal);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  [data-theme="dark"] .impact { background: var(--teal-deep); }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    text-align: center;
+  }
+
+  .impact-grid .num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: var(--amber);
+  }
+
+  .impact-grid .label {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  /* ===== Join / Volunteer ===== */
+  .join {
+    background: var(--bg);
+  }
+
+  .join-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .join-img {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .join-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .join-list {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .join-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--text-soft);
+    font-size: 0.98rem;
+  }
+
+  .join-list svg {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2;
+    margin-top: 2px;
+  }
+
+  /* ===== Contact / Donate ===== */
+  .contact {
+    background: var(--bg-alt);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+  }
+
+  .contact-card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 44px;
+    border: 1px solid var(--line-color);
+  }
+
+  .contact-card h3 { font-size: 1.5rem; margin-bottom: 20px; }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-color);
+  }
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-row svg { width: 20px; height: 20px; stroke: var(--primary); fill: none; stroke-width: 1.8; flex-shrink: 0; }
+  [data-theme="dark"] .contact-row svg { stroke: var(--amber); }
+
+  .contact-row span { font-size: 0.95rem; }
+
+  .social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .social-row a {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--line-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .social-row a:hover { background: var(--accent); transform: translateY(-3px); }
+  .social-row a:hover svg { stroke: #fff; }
+  .social-row svg { width: 18px; height: 18px; stroke: var(--text); fill: none; stroke-width: 1.8; }
+
+  .donate-card {
+    background: linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+    border-radius: 24px;
+    padding: 44px;
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .donate-card h3 {
+    color: var(--cream);
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+  }
+
+  .donate-card p {
+    color: rgba(250,246,239,0.8);
+    margin-bottom: 26px;
+    font-size: 0.98rem;
+  }
+
+  .donate-card .btn-primary {
+    align-self: flex-start;
+  }
+
+  .donate-card .tax-note {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(250,246,239,0.6);
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--line-color);
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+  }
+
+  footer .feather { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; margin-right: 6px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 860px) {
+    .hero-inner, .about-grid, .join-grid, .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual { order: -1; max-width: 420px; margin: 0 auto; }
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+    .hero { padding: 130px 0 80px; }
+    section { padding: 70px 0; }
+  }
+
+  @media (max-width: 860px) {
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      flex-direction: column;
+      padding: 20px 24px 28px;
+      gap: 18px;
+      border-bottom: 1px solid var(--line-color);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-stats { gap: 28px; }
+    .contact-card, .donate-card { padding: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z" stroke="var(--primary)" />
+        <path d="M12 21c0-6-3-10-8-13 1 5 2 9 8 13z" stroke="var(--accent)" />
+      </svg>
+      NayePankh
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#join">Volunteer</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="themeIcon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
+      <a href="#contact" class="btn btn-primary">Donate</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <svg class="drift-feather drift-1" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1">
+      <path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/>
+      <path d="M12 21c0-6-3-10-8-13 1 5 2 9 8 13z"/>
+    </svg>
+    <svg class="drift-feather drift-2" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1">
+      <path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/>
+      <path d="M12 21c0-6-3-10-8-13 1 5 2 9 8 13z"/>
+    </svg>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">
+          <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+          UP Govt. · 80G & 12A Registered NGO
+        </div>
+        <h1>Every small wing<br>helps someone <em>take flight.</em></h1>
+        <p class="lead">NayePankh Foundation is a student-led movement working across Kanpur, Ghaziabad and beyond — providing food, education, sanitary care and dignity to over 2 lakh underprivileged lives.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Donate Now</a>
+          <a href="#join" class="btn btn-outline">Join Our Team</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat reveal">
+            <div class="num">2L+</div>
+            <div class="label">Lives impacted</div>
+          </div>
+          <div class="stat reveal">
+            <div class="num">12+</div>
+            <div class="label">Cities reached</div>
+          </div>
+          <div class="stat reveal">
+            <div class="num">80G</div>
+            <div class="label">Tax-exempt donations</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Children supported by NayePankh Foundation programs">
+        <div class="float-card">
+          <div class="feather-badge">
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <strong>Student-led, ground-up</strong>
+            <span>Run by volunteers, for communities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img reveal">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80" alt="Volunteers distributing supplies">
+        </div>
+        <div class="about-text reveal">
+          <div class="eyebrow">
+            <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+            About Us
+          </div>
+          <h2>Think global. Act local.</h2>
+          <h3>A wing for every cause</h3>
+          <p>NayePankh Foundation began with a simple belief — that service to people is service to something larger. What started as a small student initiative has grown into one of India's biggest student-led NGOs, working directly with communities in Kanpur, Ghaziabad, and several other cities.</p>
+          <p>We don't ask for grand gestures. Your money, your skills, or even an afternoon of your time — every contribution becomes part of a larger wingspan that lifts someone else.</p>
+          <div class="quote-block">
+            "If we all do something, then together there is no problem that we cannot solve."
+            <cite>— Prashant Shukla, Founder & President</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">
+          <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+          What We Do
+        </div>
+        <h2>Programs built around real needs</h2>
+        <p>Each initiative is shaped by what communities tell us they need most — not the other way around.</p>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card reveal">
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg>
+          </div>
+          <h4>Free Food Drives</h4>
+          <p>Regular meal and ration distribution for families facing food insecurity in underserved neighbourhoods.</p>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Education Support</h4>
+          <p>Free books, tutoring, and learning kits for children who would otherwise have no access to schooling.</p>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9-8.5C1 8 3 5 6 5c2 0 4 1.5 6 4 2-2.5 4-4 6-4 3 0 5 3 3 7.5-2 4-9 8.5-9 8.5z"/></svg>
+          </div>
+          <h4>Sanitary Pad Donation</h4>
+          <p>Distributing sanitary pads and menstrual health awareness sessions for girls and women in rural areas.</p>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10a2 2 0 002 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+          </div>
+          <h4>Clothing Drives</h4>
+          <p>Seasonal clothing collection and distribution drives to help families through winters and emergencies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT ===== -->
+  <section class="impact" id="impact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" style="color: var(--amber);">
+          <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+          Our Impact
+        </div>
+        <h2 style="color: var(--cream);">Numbers that represent people</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="reveal">
+          <div class="num">2,00,000+</div>
+          <div class="label">People supported</div>
+        </div>
+        <div class="reveal">
+          <div class="num">15,000+</div>
+          <div class="label">Sanitary kits distributed</div>
+        </div>
+        <div class="reveal">
+          <div class="num">500+</div>
+          <div class="label">Active student volunteers</div>
+        </div>
+        <div class="reveal">
+          <div class="num">12+</div>
+          <div class="label">Cities across India</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JOIN ===== -->
+  <section class="join" id="join">
+    <div class="container">
+      <div class="join-grid">
+        <div class="join-img reveal">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80" alt="Volunteers working together">
+        </div>
+        <div class="reveal">
+          <div class="eyebrow">
+            <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+            Join Our Team
+          </div>
+          <h2>Be part of the wingspan</h2>
+          <p style="margin-top: 16px; color: var(--text-soft);">Whether you're passionate about education, health, or community outreach — there's a role for you. Most of our volunteers are students themselves, balancing classes with causes that matter.</p>
+          <ul class="join-list">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              Flexible roles for students and working professionals
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              On-ground drives in Kanpur, Ghaziabad, and other cities
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              Certificates and recognition for active contributors
+            </li>
+          </ul>
+          <a href="https://nayepankh.com/donate" class="btn btn-primary" target="_blank" rel="noopener">Get Involved</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / DONATE ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">
+          <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+          Get In Touch
+        </div>
+        <h2>Reach out, or lend a wing</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <h3>Contact Details</h3>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <span>contact@nayepankh.com</span>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.11 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.69 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.74-1.26a2 2 0 012.11-.45c.74.33 1.53.56 2.34.69A2 2 0 0122 16.92z"/></svg>
+            <span>+91 8318500748</span>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Kanpur · Ghaziabad · India</span>
+          </div>
+          <div class="social-row">
+            <a href="https://www.instagram.com/nayepankhfoundation" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/nayepankh" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@nayepankhfoundation" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.5 6.2a2.8 2.8 0 00-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 00-2 2A29 29 0 001 12a29 29 0 00.5 5.8 2.8 2.8 0 002 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 002-2A29 29 0 0023 12a29 29 0 00-.5-5.8z"/><path d="M9.7 15.5l5.7-3.5-5.7-3.5z" fill="currentColor"/></svg>
+            </a>
+            <a href="http://www.facebook.com/nayepankhfoundation" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="donate-card reveal">
+          <h3>Make a Difference Today</h3>
+          <p>Every donation is tax-exempt under Section 80G of the Indian Income Tax Act. No amount is too small — what matters is that it reaches someone who needs it.</p>
+          <a href="https://nayepankh.com/donate" class="btn btn-primary" target="_blank" rel="noopener">Donate Now</a>
+          <p class="tax-note">UP Government Registered NGO · 80G & 12A Certified</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c0-6 3-10 8-13-1 5-2 9-8 13z"/></svg>
+  © 2026 NayePankh Foundation. Built with care by a volunteer — give wings to change.
+</footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const root = document.documentElement;
+
+  const sunPath = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>';
+  const moonPath = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>';
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      themeIcon.innerHTML = moonPath;
+    } else {
+      root.removeAttribute('data-theme');
+      themeIcon.innerHTML = sunPath;
+    }
+  }
+
+  const saved = 'light'; // default; no localStorage per artifact constraints
+  applyTheme(saved);
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Scroll reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
